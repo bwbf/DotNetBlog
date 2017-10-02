@@ -11,6 +11,11 @@
     <div>
     
     </div>
+        <asp:Label ID="lblNomeUser" runat="server" Text="Label"></asp:Label>
+        <p>
+            <asp:TextBox ID="txtPost" runat="server" Width="579px"></asp:TextBox>
+        </p>
+        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Publicar" />
     </form>
 </body>
 </html>

@@ -5,6 +5,7 @@ using System.Web;
 
 namespace MeuPrimeiroProjetoEF.Web.Models
 {
+    [Serializable]
     public class Pessoa
     {
 

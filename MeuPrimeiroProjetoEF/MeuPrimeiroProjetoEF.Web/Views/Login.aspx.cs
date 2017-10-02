@@ -12,7 +12,7 @@ namespace MeuPrimeiroProjetoEF.Web.Views
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            txtSenha.TextMode = TextBoxMode.Password;
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -29,7 +29,9 @@ namespace MeuPrimeiroProjetoEF.Web.Views
                 var user = context.Pessoas.FirstOrDefault(u => u.Usuario == p.Usuario && u.Senha == p.Senha);
                 if (user != null)
                 {
+                    this.Session["Usuario"] = user;                    
                     Response.Redirect("Index.aspx");
+                    
                 }
             }
         }
