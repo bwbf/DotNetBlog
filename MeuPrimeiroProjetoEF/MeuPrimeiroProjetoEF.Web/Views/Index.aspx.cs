@@ -45,11 +45,8 @@ namespace MeuPrimeiroProjetoEF.Web.Views
                 {
                     p.Post = new List<Publicacao>();
                     p.Post.Add(c);
-                    context.Pessoas.Add(p);
                     context.SaveChanges();
                     txtPost.Text = "";
-                    ListView1.DataSource = p.Post;
-                    ListView1.DataBind();
                 }
                
             }
@@ -75,6 +72,11 @@ namespace MeuPrimeiroProjetoEF.Web.Views
             }
 
             return p;
+        }
+
+        protected void ComentarBT_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

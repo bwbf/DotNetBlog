@@ -33,9 +33,14 @@
                           Text='<%#Eval("Conteudo") %>' />
                               </p>
                           <p>
-                        <asp:Label ID="NameLabel" runat="server" 
+                        <asp:Label ID="NameLabel" Font-Size="Smaller" runat="server" 
                           Text='<%#Eval("DataPost") %>' />
                               </p>
+                           <p>
+                            <asp:TextBox ID="txtComentario" runat="server" Width="579px"></asp:TextBox>
+                           </p>
+                          
+                             <asp:Button ID="ComentarBT" runat="server" OnClick="ComentarBT_Click" Text="Comentar" />
                       </td>
                     </tr>
                   </ItemTemplate>
