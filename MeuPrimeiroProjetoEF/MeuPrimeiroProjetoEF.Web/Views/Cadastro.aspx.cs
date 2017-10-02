@@ -27,7 +27,9 @@ namespace MeuPrimeiroProjetoEF.Web.Views
                         Nome = txtNome.Text,
                         Email = txtEmai.Text,
                         Usuario = txtUsusario.Text,
-                        Senha = txtSenha.Text
+                        Senha = txtSenha.Text,
+                        Post = new List<Publicacao>()
+                        
 
                     };
                     context.Pessoas.Add(pessoa);

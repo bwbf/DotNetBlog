@@ -12,10 +12,15 @@ namespace MeuPrimeiroProjetoEF.Web.Views
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            var context = new MeuContexto();
             var profileData = this.Session["Usuario"] as Pessoa;
+            var p = context.Pessoas.Where(s => s.PessoaID == profileData.PessoaID).FirstOrDefault<Pessoa>();
             lblNomeUser.Text = "Bem vindo(a), " + profileData.Nome;
-
+            ListView1.DataSource = getMockPub();
+            ListView1.DataBind();
         }
+
+
 
         protected void Button1_Click(object sender, EventArgs e)
         {
@@ -38,14 +43,38 @@ namespace MeuPrimeiroProjetoEF.Web.Views
                     context.SaveChanges();
                 }else
                 {
-                    ICollection<Publicacao> pub = new List<Publicacao>();
-                    p.Post = pub;
+                    p.Post = new List<Publicacao>();
                     p.Post.Add(c);
-                    context.Entry(p).State = System.Data.Entity.EntityState.Modified;
+                    context.Pessoas.Add(p);
                     context.SaveChanges();
+                    txtPost.Text = "";
+                    ListView1.DataSource = p.Post;
+                    ListView1.DataBind();
                 }
                
             }
+        }
+        
+        protected void Repeater1_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            var profileData = this.Session["Usuario"] as Pessoa;
+            ((Label)e.Item.FindControl("lblNome")).Text = profileData.Nome;
+
+        }
+
+        protected List<Publicacao> getMockPub()
+        {
+            List<Publicacao> p = new List<Publicacao>();
+            for (int i = 0; i < 10; i++)
+            {
+                Publicacao mock = new Publicacao();
+                mock.Conteudo = "teste " + i;
+                mock.DataPost = DateTime.Now;
+
+                p.Add(mock);
+            }
+
+            return p;
         }
     }
 }

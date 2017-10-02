@@ -16,6 +16,32 @@
             <asp:TextBox ID="txtPost" runat="server" Width="579px"></asp:TextBox>
         </p>
         <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Publicar" />
+
+      
+
+
+            <asp:ListView runat="server" ID="ListView1">
+                  <ItemTemplate>
+                    <tr runat="server">
+                      <td runat="server">
+                        <%-- Data-bound content. --%>
+                          <p>
+                          <asp:Label ID="NomePost" runat="server"/>
+                              </p>
+                          <p>
+                          <asp:Label ID="Label2" runat="server" 
+                          Text='<%#Eval("Conteudo") %>' />
+                              </p>
+                          <p>
+                        <asp:Label ID="NameLabel" runat="server" 
+                          Text='<%#Eval("DataPost") %>' />
+                              </p>
+                      </td>
+                    </tr>
+                  </ItemTemplate>
+           </asp:ListView>
+                   
+
     </form>
 </body>
 </html>
