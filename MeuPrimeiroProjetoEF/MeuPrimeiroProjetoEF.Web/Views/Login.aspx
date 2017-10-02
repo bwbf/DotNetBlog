@@ -11,6 +11,16 @@
     <div>
     
     </div>
+        Usuario:
+        <asp:TextBox ID="txtUsuario" runat="server"></asp:TextBox>
+        <p>
+            Senha:
+            <asp:TextBox ID="txtSenha" runat="server" Width="132px"></asp:TextBox>
+        </p>
+        <p>
+            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Login" />
+            <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Cadastrar" />
+        </p>
     </form>
 </body>
 </html>

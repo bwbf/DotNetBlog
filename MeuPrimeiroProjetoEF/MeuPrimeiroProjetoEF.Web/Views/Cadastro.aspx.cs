@@ -12,7 +12,8 @@ namespace MeuPrimeiroProjetoEF.Web.Views
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            txtSenha.TextMode = TextBoxMode.Password;
+            txtConfirmaSenha.TextMode = TextBoxMode.Password;
         }
 
         protected void btnCadastrar_Click(object sender, EventArgs e)
@@ -31,6 +32,7 @@ namespace MeuPrimeiroProjetoEF.Web.Views
                     };
                     context.Pessoas.Add(pessoa);
                     context.SaveChanges();
+                    Response.Redirect("Login.aspx");
                 }
             }else
             {

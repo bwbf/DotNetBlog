@@ -22,7 +22,7 @@
             Senha<asp:TextBox ID="txtSenha" runat="server" Width="399px"></asp:TextBox>
         </p>
         <p>
-            Confirmar Senha<asp:TextBox ID="txtConfirmaSenha" runat="server" Width="329px"></asp:TextBox>
+            Confirmar Senha<asp:TextBox ID="txtConfirmaSenha"  runat="server" Width="329px"></asp:TextBox>
         </p>
         <asp:Button ID="btnCadastrar" runat="server" Text="Cadastrar" OnClick="btnCadastrar_Click" />
     </form>
