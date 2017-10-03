@@ -20,6 +20,6 @@ namespace MeuPrimeiroProjetoEF.Web.Models
 
         public string Senha { get; set; }
 
-        public ICollection<Publicacao> Post { get; set; }
+        public ICollection<Publicacao> Publicacao { get; set; }
     }
 }

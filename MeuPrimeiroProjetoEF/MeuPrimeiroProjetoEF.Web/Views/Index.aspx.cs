@@ -16,7 +16,7 @@ namespace MeuPrimeiroProjetoEF.Web.Views
             var profileData = this.Session["Usuario"] as Pessoa;
             var p = context.Pessoas.Where(s => s.PessoaID == profileData.PessoaID).FirstOrDefault<Pessoa>();
             lblNomeUser.Text = "Bem vindo(a), " + profileData.Nome;
-            ListView1.DataSource = getMockPub();
+            ListView1.DataSource = p.Publicacao;
             ListView1.DataBind();
         }
 
@@ -36,17 +36,20 @@ namespace MeuPrimeiroProjetoEF.Web.Views
 
                 };
                 var p = context.Pessoas.Where(s => s.PessoaID == profileData.PessoaID).FirstOrDefault<Pessoa>();
-                if(p.Post != null)
+                if(p.Publicacao != null)
                 {
-                    p.Post.Add(c);
+                    p.Publicacao.Add(c);
                     context.Entry(p).State = System.Data.Entity.EntityState.Modified;
                     context.SaveChanges();
                 }else
                 {
-                    p.Post = new List<Publicacao>();
-                    p.Post.Add(c);
+                    p.Publicacao = new List<Publicacao>();
+                    p.Publicacao.Add(c);
                     context.SaveChanges();
                     txtPost.Text = "";
+                    ListView1.DataSource = p.Publicacao;
+                    ListView1.DataBind();
+                    this.Session["Usuario"] = p;
                 }
                
             }
